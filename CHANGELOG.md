@@ -18,3 +18,6 @@
 - Added Geofence for server side check
 - Geo cache fixed
 - Added usage of geo-fence
+
+##Dev-Release
+Added Configuration for Laravel 7 support
