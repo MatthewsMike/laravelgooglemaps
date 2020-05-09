@@ -85,7 +85,6 @@ class GMaps
     public $region = '';                        // Country code top-level domain (eg "uk") within which to search. Useful if supplying addresses rather than lat/longs
     public $scaleControlPosition = '';                        // The position of the Scale control, eg. 'BOTTOM_RIGHT'
     public $scrollwheel = true;                        // If set to FALSE will disable zooming by scrolling of the mouse wheel
-    protected $sensor = false;                    // Set to TRUE if being used on a device that can detect a users location
     public $streetViewAddressControl = true;                        // If set to FALSE will hide the Address control
     public $streetViewAddressPosition = '';                        // The position of the Address control, eg. 'BOTTOM'
     public $streetViewControlPosition = '';                        // The position of the Street View control when viewing normal aerial map, eg. 'BOTTOM_RIGHT'
@@ -189,12 +188,6 @@ class GMaps
             if (isset($this->$key)) {
                 $this->$key = $val;
             }
-        }
-
-        if ($this->sensor) {
-            $this->sensor = "true";
-        } else {
-            $this->sensor = "false";
         }
     }
 
@@ -1109,11 +1102,10 @@ class GMaps
 
         if ($this->maps_loaded == 0) {
             if ($this->apiKey != "") {
-                $apiLocation = $host.'://maps.googleapis.com/maps/api/js?key='.$this->apiKey.'&sensor='.$this->sensor;
+                $apiLocation = $host.'://maps.googleapis.com/maps/api/js?key='.$this->apiKey;
             } else {
-                $apiLocation = $host.'://maps.google.com/maps/api/js?sensor='.$this->sensor;
+                $apiLocation = $host.'://maps.google.com/maps/api/js';
             }
-            $apiLocation .= 'sensor='.$this->sensor; //Sensor feature depreciated by google API V3
             if ($this->version != "") {
                 $apiLocation .= '&v='.$this->version;
             }
@@ -2370,7 +2362,7 @@ class GMaps
             }
         }
 
-        $data_location = "https://maps.google.com/maps/api/geocode/json?address=".urlencode(utf8_encode($address))."&sensor=".$this->sensor."&key=".$this->apiKey;
+        $data_location = "https://maps.google.com/maps/api/geocode/json?address=".urlencode(utf8_encode($address))."&key=".$this->apiKey;
         if ($this->region != "" && strlen($this->region) == 2) {
             $data_location .= "&region=".$this->region;
         }
