@@ -5,7 +5,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/farhanwazir/laravelgooglemaps/v/unstable.svg)](https://packagist.org/packages/farhanwazir/laravelgooglemaps)
 [![License](https://poser.pugx.org/farhanwazir/laravelgooglemaps/license.svg)](https://packagist.org/packages/farhanwazir/laravelgooglemaps)
 
-This repo aims to use google map features in laravel 5.x. It is easy to use and flexible, you can just install this package and enjoy google map in your website and/or applications.
+This repo aims to use google map features in laravel 7.x. It is easy to use and flexible, you can just install this package and enjoy google map in your website and/or applications.
 
 
 ## Features
@@ -40,10 +40,18 @@ This repo aims to use google map features in laravel 5.x. It is easy to use and 
 ## Installation
 Add in composer.json
 ```
+  "repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/MatthewsMike/laravelgooglemaps"
+    }
+],
+---
   "require": {
-      "farhanwazir/laravelgooglemaps": "^2.3"
+      "farhanwazir/laravelgooglemaps": "dev-laravel7"
       ----
   }
+
 ```
 Then
 ```
